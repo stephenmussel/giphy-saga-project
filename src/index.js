@@ -29,10 +29,14 @@ function* addFavorite(action) {
     }
 }
 
-function* fetchFavorites(action) {
+function* fetchFavorites() {
     try {
         console.log('fetchFavorite saga wired!');
         
+        const response = yield axios.get('/api/favorite');
+        yield console.log('favorite list: ', response.data);
+        const action = {type: 'SET_FAVORITES', payload: response.data};
+        yield put(action);
 
     } catch(err) {
         console.log('err in fetchFavorites', err);
