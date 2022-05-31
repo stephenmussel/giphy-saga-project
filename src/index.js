@@ -11,7 +11,18 @@ import axios from 'axios';
 const sagaMiddleware = createSagaMiddleware();
 
 function* rootSaga() {
+    yield takeEvery('ADD_FAVORITE', addFavorite)
+}
 
+function* addFavorite() {
+    try {
+        console.log('addFavorite saga wired!');
+        
+
+    } catch(err) {
+        console.log('err in adding addFavorite', err);
+        
+    }
 }
 
 // category reducer
