@@ -20,6 +20,10 @@ function Favorites() {
     return (
         <>
             <h3>Favorites...</h3>
+            {/* {JSON.stringify(favorites)} */}
+            {favorites.map(each => (
+                <img src={each.url}/>
+            ))}
         </>
     )
 }

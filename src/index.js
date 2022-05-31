@@ -37,7 +37,6 @@ function* fetchFavorites() {
         yield console.log('favorite list: ', response.data);
         const action = {type: 'SET_FAVORITES', payload: response.data};
         yield put(action);
-
     } catch(err) {
         console.log('err in fetchFavorites', err);
     }
