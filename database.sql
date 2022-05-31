@@ -18,4 +18,4 @@ CREATE TABLE "favorite"(
     "id" SERIAL PRIMARY KEY,
     "url" VARCHAR (250),
     "category_id" INT REFERENCES "category" 
-);`
+);
