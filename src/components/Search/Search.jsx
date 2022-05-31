@@ -46,7 +46,7 @@ function Search() {
                 {results.map((gif, i) => (
                     <SearchItem 
                         key={i}
-                        gif={gif}
+                        gif={gif.images.original.url}
                     />
                 ))}
             </div>
