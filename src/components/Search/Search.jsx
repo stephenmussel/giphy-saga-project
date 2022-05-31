@@ -1,5 +1,6 @@
 import axios from 'axios';
 import { useState } from 'react';
+import SearchItem from '../SearchItem/SearchItem';
 
 function Search() {
 
@@ -43,7 +44,10 @@ function Search() {
                 <h1>Results...</h1>
                 {/* {JSON.stringify(results)} */}
                 {results.map((gif, i) => (
-                    <img key={i} src={gif.images.original.url}/>
+                    <SearchItem 
+                        key={i}
+                        gif={gif}
+                    />
                 ))}
             </div>
         </div>
