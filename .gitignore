@@ -2,6 +2,9 @@
 .DS_Store
 .DS_STORE/
 
+# Giphy
+.env
+
 # React Build Directory
 build/
 
