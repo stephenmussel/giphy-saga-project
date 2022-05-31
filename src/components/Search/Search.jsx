@@ -8,6 +8,9 @@ function Search() {
     const handleSubmit = (event) => {
         event.preventDefault();
         console.log('clicked search!');
+
+        console.log('this is input: ', search);
+        setSearch('') // clears input
     }
 
     return(
@@ -16,6 +19,8 @@ function Search() {
                 <input 
                     placeholder='search GIPHY'
                     style={{marginRight: 5}}
+                    onChange={(event) => setSearch(event.target.value)}
+                    value={search} // helps to clear input field later
                 />
                 <input 
                     type='submit'
