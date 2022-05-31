@@ -1,5 +1,6 @@
 import { useSelector, useDispatch } from 'react-redux';
 import { useEffect } from 'react';
+import FavoritesItem from '../FavoritesItem/FavoritesItem';
 
 function Favorites() {
 
@@ -21,8 +22,11 @@ function Favorites() {
         <>
             <h3>Favorites...</h3>
             {/* {JSON.stringify(favorites)} */}
-            {favorites.map(each => (
-                <img src={each.url}/>
+            {favorites.map((each, i) => (
+                <FavoritesItem 
+                    each={each}
+                    key={i}
+                />
             ))}
         </>
     )
