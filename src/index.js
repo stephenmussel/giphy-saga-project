@@ -14,9 +14,13 @@ function* rootSaga() {
     yield takeEvery('ADD_FAVORITE', addFavorite)
 }
 
-function* addFavorite() {
+function* addFavorite(action) {
     try {
         console.log('addFavorite saga wired!');
+
+        const newFav = action.payload;
+        yield console.log('newFav: ', newFav);
+        yield axios.post('/api/favorite', {url: newFav});
         
 
     } catch(err) {
