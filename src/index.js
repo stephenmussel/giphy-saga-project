@@ -26,7 +26,8 @@ const category = (state =[], action) => {
 // favorite reducer
 const favorite = (state =[], action) => {
     switch (action.type) {
-    
+        case 'ADD_FAVORITE':
+            return [...state, action.payload];
         default:
             return state;
     }

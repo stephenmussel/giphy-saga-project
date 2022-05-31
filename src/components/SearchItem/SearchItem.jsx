@@ -1,4 +1,16 @@
+import { useDispatch } from 'react-redux';
+
 function SearchItem({ gif, i }) {
+
+    const dispatch = useDispatch();
+
+    const addFavorite = () => {
+        console.log('clicked favorite!');
+
+        const action = {type: 'ADD_FAVORITE', payload: gif};
+        dispatch(action);
+    }
+
     return(
         <div>
         <img 
@@ -7,7 +19,7 @@ function SearchItem({ gif, i }) {
             alt="images"
             style={{marginTop: 25, marginBottom: 5}}
         /><br />
-        <button>favorite</button>
+        <button onClick={addFavorite}>favorite</button>
         </div>
     )
 }
