@@ -6,7 +6,7 @@ const router = express.Router();
 
 // return all favorite images
 router.get('/', (req, res) => {
-  const queryText = `SELECT id, url from favorite ORDER by id DESC;`;
+  const queryText = `SELECT * from favorite ORDER by id DESC;`;
   pool.query(queryText)
     .then(result => {
       res.send(result.rows)
@@ -34,9 +34,23 @@ router.post('/', (req, res) => {
   });
 
 // update given favorite with a category id
-router.put('/:favId', (req, res) => {
+router.put('/:id', (req, res) => {
   // req.body should contain a category_id to add to this favorite image
-  res.sendStatus(200);
+  const favId = req.params.id;
+  console.log('favId: ', favId);
+  
+  const catId = req.body;
+  console.log('catId: ', catId);
+  const queryText = `UPDATE favorite SET category_id = $1 WHERE id = $2;`;
+  pool.query(queryText, [catId.category_id, favId])
+    .then(result => {
+      console.log('result: ', result);
+      res.sendStatus(201);
+    })
+    .catch(err => {
+      console.log('err in adding category to giph: ', err);
+      res.sendStatus(500);
+    });
 });
 
 // delete a favorite

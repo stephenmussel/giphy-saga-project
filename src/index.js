@@ -16,14 +16,16 @@ function* rootSaga() {
     yield takeEvery('ADD_CATEGORY', addCategory)
 }
 
-function* addCategory() {
+function* addCategory(action) {
     try {
         console.log('addCategory saga wired!');
 
-        const newCat = action.payload;
-        yield console.log('newCat: ', newCat);
+        const favId = action.payload;
+        yield console.log('favId: ', favId);
+        yield axios.put(`/api/favorite/${favId}`, {category_id: action.category_id});
         
-
+        // GET follows PUT to get updated list
+        // yield put({type: 'FETCH_FAVORITES'})
     } catch(err) {
         console.log('err in adding category', err);  
     }
