@@ -22,10 +22,10 @@ function Favorites() {
         <>
             <h3>Favorites...</h3>
             {/* {JSON.stringify(favorites)} */}
-            {favorites.map((each, i) => (
+            {favorites.map(each => (
                 <FavoritesItem 
                     each={each}
-                    key={i}
+                    key={each.id}
                 />
             ))}
         </>

@@ -1,19 +1,25 @@
 import { useState } from 'react';
 import axios from 'axios';
+import { useDispatch } from 'react-redux';
 
-function FavoritesItem({ each, i }) {
+function FavoritesItem({ each }) {
 
     const [category, setCategory] = useState('');
+    const dispatch = useDispatch();
 
     const addCategory = (event) => {
         console.log('in addCategory!');
         console.log('category selected: ', event.target.value);
+        console.log('each: ', each.id);
+
+        const action = {type: 'ADD_CATEGORY', payload: each.id, category_id: event.target.value};
+        dispatch(action);
     }
 
     return(
         <div>
             <img 
-                key={i} 
+                key={each.id} 
                 src={each.url}
                 alt="giphs"
                 style={{marginTop: 25, marginBottom: 5}}
