@@ -11,6 +11,7 @@ function FavoritesItem({ each }) {
         checkCat();
     }, [])
 
+    // checks to see if giph has category_id then sets it to the corresponding string value and displays it.
     const checkCat = () => {
         console.log('in checkCat!');
 
@@ -61,10 +62,11 @@ function FavoritesItem({ each }) {
                 alt="giphs"
                 style={{marginTop: 25}}
             /><br />
-            <p><b>Category:</b> {category}</p>
+            {/* displays category of giph if available */}
+            <p><b>Category:</b> {category}</p> 
             <select onChange={addCategory} style={{marginRight: 5}}>
 
-                {/* value represent category id */}
+                {/* value represents category id */}
                 <option>select category</option>
                 <option value="1">funny</option>
                 <option value="2">cohort</option>
