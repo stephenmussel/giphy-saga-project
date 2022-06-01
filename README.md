@@ -1,69 +1,139 @@
-# Giphy Search and Favorites
 
-This week you will be building a Giphy searching and favoriting application which allows the user to save images and sort them into categories.
+<!-- 
+![MIT LICENSE](https://img.shields.io/github/license/scottbromander/the_marketplace.svg?style=flat-square)
+![REPO SIZE](https://img.shields.io/github/repo-size/scottbromander/the_marketplace.svg?style=flat-square)
+![TOP_LANGUAGE](https://img.shields.io/github/languages/top/scottbromander/the_marketplace.svg?style=flat-square)
+![FORKS](https://img.shields.io/github/forks/scottbromander/the_marketplace.svg?style=social)
+-->
 
-In this project you will need to utilize React, Redux, Redux-Saga and integrate them with a 3rd party API....all in a group project!
+# GIPHY SAGA PROJECT
 
-## Team Setup
-Do not clone this repository. Instead, have one person create a new repo by clicking on the **Use this template** button to make a copy. Make your team collaborators on the new repo you have created. The rest of the team members that did not make the initial repo will clone directly from the person who created the new repo, **do NOT fork** the repo.
+<!-- TABLE OF CONTENTS -->
+<details>
+  <summary>Table of Contents</summary>
+  <ol>
+    <li><a href="#description">Description</a></li>
+    <li>
+      <a href="#preview">Preview</a></li>
+      <ul>
+        <li>
+            <a href="#prerequisites">Prerequisites</a></li>
+        </li>
+      </ul>
+    </li>
+    <li><a href="#setup">Setup</a></li>
+    <li><a href="#usage">Usage</a></li>
+    <li><a href="#updates">Updates</a></li>
+    <li><a href="#built-with">Built With</a></li>
+    <li><a href="#acknowledgement">Acknowledgment</a></li>
+    <li><a href="#support">Support</a></li>
+  </ol>
+</details>
+<br />
 
+<!-- Description -->
+## Description
 
-## Create Database and Tables
+_Duration: 2 Day Sprint_
 
-See the `database.sql` file for database setup and details. It offers some of the SQL to get you started but you'll need to set up your tables and the relationships between them.
+Built a Giphy searching and favoriting application which allows the user to save images and sort them into categories.
 
+This roject utilizes React, Redux, Redux-Saga and integrate them with a 3rd party API.
 
-## Development Setup Instructions
+Directly above this is how long it took you to develop the project. Your project description goes here. What problem did you solve? How did you solve it? 
 
-* Run `npm install`
-* Start postgres if not running already by using `brew services start postgresql`
-* Run `npm run server` to start the server
-* Run `npm run client` to start the client
-* Navigate to `localhost:3000`
+Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed aliquam at massa in faucibus. Etiam volutpat, risus non mollis convallis, velit nisi pulvinar mi, eu faucibus orci nisi eget nibh. Integer a velit pretium, volutpat arcu eleifend, fringilla elit. Cras erat sapien, convallis venenatis tellus vitae, feugiat dictum felis.
 
+Suspendisse euismod volutpat aliquet. Maecenas vulputate mauris in pellentesque facilisis. Phasellus varius malesuada semper. Cras sollicitudin diam mollis maximus aliquam.
 
-## Base Features
+<p align="right">(<a href="#top">back to top</a>)</p>
 
-You will need 2 views for the Base Features. You should put some thought into the UI and how to style it.
+<!-- Preview -->
+## Preview  
+<br />
 
+![Giphy API]()
+<br /> 
 
-### Search View
+<p align="right">(<a href="#top">back to top</a>)</p>
 
-- Allow a user to enter a search string and submit a search request.
-- Query the `Giphy API Search Endpoint` with the given search string **FROM THE SERVER**.
-- Display the results on the DOM.
-- Allow a user to Favorite any of the resulting images. You'll need to think about what information to save to your own database. Generally you only store the minimum needed to show this image again on the **Favorites View**.
+<!-- Prerequisites -->
+### Prerequisites
 
+- [Node.js](https://nodejs.org/en/)
 
-### Favorites View
+<p align="right">(<a href="#top">back to top</a>)</p>
 
-- Allow a user to see all of the Giphy images they have Favorited. The actual images need to appear on the DOM.
-- Allow a user to set a category for a favorite image.
-    - Each favorite image can only have 1 category at a time.
-    - The category needs to be one of the categories in the database.
+<!-- Setup -->
+## Setup
 
+1. Register an account in order to get your `API Key`. This key is used for all of your requests to authenticate your app to Giphy.
 
-## Existing Routes
+2. Create a `.env` file and add your API key.
 
-You are given two router modules on the server with stubs for the routes you may need.
+    `GIPHY_API_KEY=YOUR_KEY_GOES_HERE`
+ 
+3. Open up your editor of choice and run an `npm install`
+4. Start postgres if not running already by using `brew services start postgresql`
+5. Run `npm run server` in your terminal
+6. Run `npm run client` in your terminal
+7. The `npm run client` command will open up a new browser tab for you!  
 
-- `GET /api/category` (complete)
-    - Returns a list of all categories from the table ordered by name. You may test it if your server is running: [http://localhost:5000/api/category](http://localhost:5000/api/category)
+<p align="right">(<a href="#top">back to top</a>)</p>
 
-- `POST /api/favorite` (incomplete)
-    - For adding a new favorite image. You'll need to think about what is needed. Does it need a category?
+<!-- Usage -->
+## Usage
+How does someone use this application? Tell a user story here.
 
-- `PUT /api/favorite` (incomplete)
-    - For setting a category on an image. It expects both a query parameter and a data body. Feel free to change it as needed.
+1. xxx
+2. xxx
+3. xxx
+4. xxx
+5. xxx
+6. xxx  
 
+<p align="right">(<a href="#top">back to top</a>)</p>
 
-## Stretch Features
+<!-- Updates -->
+## Updates
+ 
+- [ ] Allow for a favorite to have **many categories** instead of just one 
+- [ ] Implement the pagination feature for the Giphy search results
+- [ ] Add another view that allows a user to manage the categories
+    - [ ] User should be able to create a new category
+    - [ ] User should be able to edit an existing category
+    - [ ] User should be able to delete/remove an existing category
+- [ ] Add sticky footer
+- [ ] Update readme
 
-1. Allow favorites to be removed/unfavorited
-1. Allow for a favorite to have **many categories** instead of just one
-1. Implement the pagination feature for the Giphy search results
-1. Add another view that allows a user to manage the categories
-    - User should be able to create a new category
-    - User should be able to edit an existing category
-    - User should be able to delete/remove an existing category
+<p align="right">(<a href="#top">back to top</a>)</p>
 
+<!-- Built With -->
+## Built With
+
+* [React.js](https://reactjs.org/)
+* [Redux.js](https://redux.js.org/)
+* [Redux-Saga](https://redux-saga.js.org/)
+* [Axios](http://npmjs.com/package/axios)
+* [Material-UI](https://mui.com/)
+* HTML5
+* CSS3
+* [Express.js](http://expressjs.com)
+* [Node.js](https://nodejs.org/en)
+
+<p align="right">(<a href="#top">back to top</a>)</p>
+
+<!-- Acknowledgement -->
+## Acknowledgement
+Thanks to [Prime Digital Academy](www.primeacademy.io) who equipped and helped me to make this application a reality. Thank you to my wife and our dog Laurel for their continued support and patience.  
+
+<p align="right">(<a href="#top">back to top</a>)</p>
+
+<!-- Support -->
+## Support
+If you have suggestions or issues, please contact me at:  
+
+[LinkedIn](https://www.linkedin.com/in/phaydara-vongsavanthong/)  
+[GitHub](https://github.com/stephenmussel)  
+
+<p align="right">(<a href="#top">back to top</a>)</p>
