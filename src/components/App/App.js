@@ -13,7 +13,7 @@ function App(props) {
             <Link to="/">Home</Link>
           </li>
           <li>
-            <Link to="/favorites">Favorite</Link>
+            <Link to="/favorites">Favorites</Link>
           </li>
         </ul>
         <Route exact path="/" component={Search} />

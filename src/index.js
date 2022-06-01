@@ -66,10 +66,11 @@ function* fetchFavorites() {
     try {
         console.log('fetchFavorite saga wired!');
         
+        // GETs data from server
         const response = yield axios.get('/api/favorite');
         yield console.log('favorite list: ', response.data);
 
-        // GETs data from server and stores in favorite reducer
+        // Stores in favorite reducer
         const action = {type: 'SET_FAVORITES', payload: response.data};
         yield put(action);
     } catch(err) {
@@ -82,6 +83,8 @@ const category = (state =[], action) => {
     switch (action.type) {
         case 'ADD_CATEGORY':
             return [...state, action.payload];
+        case 'SET_CATEGORY':
+            return action.payload;
         default:
             return state;
     }

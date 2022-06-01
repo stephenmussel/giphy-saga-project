@@ -20,7 +20,7 @@ function Favorites() {
 
     return (
         <>
-            <h3>Favorites...</h3>
+            <h1>Favorites...</h1>
             {/* {JSON.stringify(favorites)} */}
             {favorites.map(each => (
                 <FavoritesItem 
