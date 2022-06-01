@@ -17,6 +17,10 @@ function FavoritesItem({ each }) {
         dispatch(action);
     }
 
+    const removeFav = () => {
+        console.log('clicked remove with favId:', each.id);
+    }
+
     return(
         <div>
             <img 
@@ -25,7 +29,7 @@ function FavoritesItem({ each }) {
                 alt="giphs"
                 style={{marginTop: 25, marginBottom: 5}}
             /><br />
-            <select onChange={addCategory}>
+            <select onChange={addCategory} style={{marginRight: 5}}>
 
                 {/* value represent category id */}
                 <option>select category</option>
@@ -35,6 +39,7 @@ function FavoritesItem({ each }) {
                 <option value="4">nsfw</option>
                 <option value="5">meme</option>
             </select>
+            <button onClick={() => removeFav(each.id)}>remove</button>
         </div>
     )
 }

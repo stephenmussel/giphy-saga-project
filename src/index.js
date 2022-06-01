@@ -25,7 +25,7 @@ function* addCategory(action) {
         yield axios.put(`/api/favorite/${favId}`, {category_id: action.category_id});
         
         // GET follows PUT to get updated list
-        // yield put({type: 'FETCH_FAVORITES'})
+        yield put({type: 'FETCH_FAVORITES'})
     } catch(err) {
         console.log('err in adding category', err);  
     }
