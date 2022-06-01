@@ -22,8 +22,9 @@ function* addFavorite(action) {
         const newFav = action.payload;
         yield console.log('newFav: ', newFav);
         yield axios.post('/api/favorite', {url: newFav});
-        
 
+        // GET follows POST to get updated list
+        yield put({type: 'FETCH_FAVORITES'})
     } catch(err) {
         console.log('err in adding addFavorite', err);
     }
@@ -35,6 +36,8 @@ function* fetchFavorites() {
         
         const response = yield axios.get('/api/favorite');
         yield console.log('favorite list: ', response.data);
+
+        // GETs data from server and stores in favorite reducer
         const action = {type: 'SET_FAVORITES', payload: response.data};
         yield put(action);
     } catch(err) {
