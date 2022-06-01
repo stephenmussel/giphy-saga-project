@@ -76,7 +76,7 @@ Suspendisse euismod volutpat aliquet. Maecenas vulputate mauris in pellentesque 
 3. Open up your editor of choice and run an `npm install`
 4. Run `npm run server` in your terminal
 5. Run `npm run client` in your terminal
-6. The `npm run client` command will open up a new browser tab for you! If it doesn't, enter: localhost:3000 in a new tab.
+6. The `npm run client` command will open up a new browser tab for you! If it doesn't, enter: `localhost:3000` in a new tab.
 
 <p align="right">(<a href="#top">back to top</a>)</p>
 
@@ -103,6 +103,7 @@ How does someone use this application? Tell a user story here.
     - [ ] User should be able to create a new category
     - [ ] User should be able to edit an existing category
     - [ ] User should be able to delete/remove an existing category
+- [ ] Material-UI
 - [ ] Add sticky footer
 - [ ] Update readme
 

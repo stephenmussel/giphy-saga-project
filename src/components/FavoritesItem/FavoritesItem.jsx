@@ -1,4 +1,4 @@
-import { useState } from 'react';
+import { useState, useEffect } from 'react';
 import axios from 'axios';
 import { useDispatch } from 'react-redux';
 
@@ -6,6 +6,34 @@ function FavoritesItem({ each }) {
 
     const [category, setCategory] = useState('');
     const dispatch = useDispatch();
+
+    useEffect(() => {
+        checkCat();
+    }, [])
+
+    const checkCat = () => {
+        console.log('in checkCat!');
+
+        switch(each.category_id) {
+            case 1:
+                setCategory('Funny');
+            break;
+            case 2:
+                setCategory('Cohort');
+            break;
+            case 3:
+                setCategory('Cartoon');
+            break;
+            case 4:
+                setCategory('NSFW');
+            break;
+            case 5:
+                setCategory('Meme');
+            break;
+            default:
+                break;
+        }
+    }
 
     const addCategory = (event) => {
         console.log('in addCategory!');
@@ -26,12 +54,14 @@ function FavoritesItem({ each }) {
 
     return(
         <div>
+            
             <img 
                 key={each.id} 
                 src={each.url}
                 alt="giphs"
-                style={{marginTop: 25, marginBottom: 5}}
+                style={{marginTop: 25}}
             /><br />
+            <p><b>Category:</b> {category}</p>
             <select onChange={addCategory} style={{marginRight: 5}}>
 
                 {/* value represent category id */}
@@ -43,6 +73,7 @@ function FavoritesItem({ each }) {
                 <option value="5">meme</option>
             </select>
             <button onClick={() => removeFav(each.id)}>remove</button>
+            
         </div>
     )
 }
