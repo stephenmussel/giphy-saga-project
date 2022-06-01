@@ -14,6 +14,17 @@ function* rootSaga() {
     yield takeEvery('ADD_FAVORITE', addFavorite)
     yield takeEvery('FETCH_FAVORITES', fetchFavorites)
     yield takeEvery('ADD_CATEGORY', addCategory)
+    yield takeEvery('REMOVE_FAV', removeFav)
+}
+
+function* removeFav(action) {
+    try {
+        console.log('removeFav saga wired!');
+        
+
+    } catch(err) {
+        console.log('err in removing favorite', err);  
+    }
 }
 
 function* addCategory(action) {

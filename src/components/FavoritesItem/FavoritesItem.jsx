@@ -19,6 +19,9 @@ function FavoritesItem({ each }) {
 
     const removeFav = () => {
         console.log('clicked remove with favId:', each.id);
+
+        const action = {type: 'REMOVE_FAV', payload: each.id};
+        dispatch(action);
     }
 
     return(
