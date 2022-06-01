@@ -12,7 +12,8 @@ function FavoritesItem({ each }) {
         console.log('category_id selected: ', event.target.value);
         console.log('favGiphId: ', each.id);
 
-        const action = {type: 'ADD_CATEGORY', payload: each.id, category_id: parseInt(event.target.value)};
+        // sending id of favorited giph along with category id
+        const action = {type: 'ADD_CATEGORY', payload: each.id, category_id: event.target.value};
         dispatch(action);
     }
 
