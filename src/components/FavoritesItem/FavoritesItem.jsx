@@ -27,6 +27,7 @@ function FavoritesItem({ each }) {
             <select onChange={addCategory}>
 
                 {/* value represent category id */}
+                <option>select category</option>
                 <option value="1">funny</option>
                 <option value="2">cohort</option>
                 <option value="3">cartoon</option>
