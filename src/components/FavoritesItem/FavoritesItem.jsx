@@ -4,14 +4,14 @@ import { useDispatch } from 'react-redux';
 
 function FavoritesItem({ each }) {
 
-    const [category, setCategory] = useState('');
+    const [category, setCategory] = useState('n/a');
     const dispatch = useDispatch();
 
     useEffect(() => {
         checkCat();
     }, [])
 
-    // checks to see if giph has category_id then sets it to the corresponding string value and displays it.
+    // checks to see if giph has category_id then displays corresponding string value or `n/a` if it doesn't have one.
     const checkCat = () => {
         console.log('in checkCat!');
 
