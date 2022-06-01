@@ -13,6 +13,20 @@ const sagaMiddleware = createSagaMiddleware();
 function* rootSaga() {
     yield takeEvery('ADD_FAVORITE', addFavorite)
     yield takeEvery('FETCH_FAVORITES', fetchFavorites)
+    yield takeEvery('ADD_CATEGORY', addCategory)
+}
+
+function* addCategory() {
+    try {
+        console.log('addCategory saga wired!');
+
+        const newCat = action.payload;
+        yield console.log('newCat: ', newCat);
+        
+
+    } catch(err) {
+        console.log('err in adding category', err);  
+    }
 }
 
 function* addFavorite(action) {
@@ -48,7 +62,8 @@ function* fetchFavorites() {
 // category reducer
 const category = (state =[], action) => {
     switch (action.type) {
-    
+        case 'ADD_CATEGORY':
+            return [...state, action.payload];
         default:
             return state;
     }

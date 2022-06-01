@@ -10,9 +10,9 @@ function FavoritesItem({ each }) {
     const addCategory = (event) => {
         console.log('in addCategory!');
         console.log('category selected: ', event.target.value);
-        console.log('each: ', each.id);
+        console.log('giph ID: ', each.id);
 
-        const action = {type: 'ADD_CATEGORY', payload: each.id, category_id: event.target.value};
+        const action = {type: 'ADD_CATEGORY', payload: {id: each.id, category_id: event.target.value}};
         dispatch(action);
     }
 
