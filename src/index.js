@@ -20,8 +20,13 @@ function* rootSaga() {
 function* removeFav(action) {
     try {
         console.log('removeFav saga wired!');
-        
 
+        const removeId = action.payload;
+        console.log('id to remove:', removeId);
+        yield axios.delete(`/api/favorite/${removeId}`);
+        
+        // GET follows PUT to get updated list
+        yield put({type: 'FETCH_FAVORITES'})
     } catch(err) {
         console.log('err in removing favorite', err);  
     }

@@ -54,8 +54,19 @@ router.put('/:id', (req, res) => {
 });
 
 // delete a favorite
-router.delete('/', (req, res) => {
-  res.sendStatus(200);
+router.delete('/:id', (req, res) => {
+  const idToRemove = req.params.id;
+  console.log('idToRemove:', idToRemove);
+
+  const queryText = `DELETE from favorite WHERE id = $1;`;
+  pool.query(queryText, [idToRemove])
+    .then(result => {
+        res.sendStatus(200);
+    })
+    .catch(err => {
+      console.log('err in removing favorite giph', err);
+      res.sendStatus(500);
+    });
 });
 
 module.exports = router;
