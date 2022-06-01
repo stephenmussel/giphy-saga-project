@@ -36,11 +36,9 @@
 
 _Duration: 2 Day Sprint_
 
-Built a Giphy searching and favoriting application which allows the user to save images and sort them into categories.
+Built a Giphy searching and favoriting application which allows the user to save images and sort them into categories. This project utilizes React, Redux, Redux-Saga and integrates them with the Giphy API.
 
-This roject utilizes React, Redux, Redux-Saga and integrate them with a 3rd party API.
-
-Directly above this is how long it took you to develop the project. Your project description goes here. What problem did you solve? How did you solve it? 
+Your project description goes here. What problem did you solve? How did you solve it? 
 
 Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed aliquam at massa in faucibus. Etiam volutpat, risus non mollis convallis, velit nisi pulvinar mi, eu faucibus orci nisi eget nibh. Integer a velit pretium, volutpat arcu eleifend, fringilla elit. Cras erat sapien, convallis venenatis tellus vitae, feugiat dictum felis.
 
@@ -52,7 +50,7 @@ Suspendisse euismod volutpat aliquet. Maecenas vulputate mauris in pellentesque 
 ## Preview  
 <br />
 
-![Giphy API]()
+<!-- [Giphy API]() -->
 <br /> 
 
 <p align="right">(<a href="#top">back to top</a>)</p>
@@ -61,6 +59,7 @@ Suspendisse euismod volutpat aliquet. Maecenas vulputate mauris in pellentesque 
 ### Prerequisites
 
 - [Node.js](https://nodejs.org/en/)
+- [PostgreSQL](http://postgresql.org)
 
 <p align="right">(<a href="#top">back to top</a>)</p>
 
@@ -72,12 +71,12 @@ Suspendisse euismod volutpat aliquet. Maecenas vulputate mauris in pellentesque 
 2. Create a `.env` file and add your API key.
 
     `GIPHY_API_KEY=YOUR_KEY_GOES_HERE`
- 
+
+3. The queries in the `database.sql` file are set up to create all the necessary tables and populate the needed data to allow the application to run correctly. The project is built on Postgres, so you will need to make sure to have that installed. We recommend using Postico to run those queries as that was used to create the queries,
 3. Open up your editor of choice and run an `npm install`
-4. Start postgres if not running already by using `brew services start postgresql`
-5. Run `npm run server` in your terminal
-6. Run `npm run client` in your terminal
-7. The `npm run client` command will open up a new browser tab for you!  
+4. Run `npm run server` in your terminal
+5. Run `npm run client` in your terminal
+6. The `npm run client` command will open up a new browser tab for you! If it doesn't, enter: localhost:3000 in a new tab.
 
 <p align="right">(<a href="#top">back to top</a>)</p>
 
@@ -97,6 +96,7 @@ How does someone use this application? Tell a user story here.
 <!-- Updates -->
 ## Updates
  
+- [ ] Sort by category 
 - [ ] Allow for a favorite to have **many categories** instead of just one 
 - [ ] Implement the pagination feature for the Giphy search results
 - [ ] Add another view that allows a user to manage the categories
@@ -120,6 +120,7 @@ How does someone use this application? Tell a user story here.
 * CSS3
 * [Express.js](http://expressjs.com)
 * [Node.js](https://nodejs.org/en)
+* [PostgreSQL](http://postgresql.org)
 
 <p align="right">(<a href="#top">back to top</a>)</p>
 
