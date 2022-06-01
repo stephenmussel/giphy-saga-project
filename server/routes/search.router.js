@@ -4,7 +4,7 @@ const router = express.Router();
 
 // POST route for search string to be received...
 router.post('/', (req, res) => {
-    searchQuery = req.body.search;
+    const searchQuery = req.body.search;
     console.log('searchQuery: ', searchQuery);
 
     // then that data can be used in the GET request
