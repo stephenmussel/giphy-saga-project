@@ -36,7 +36,7 @@ function* removeFav(action) {
         console.log('id to remove:', removeId);
         yield axios.delete(`/api/favorite/${removeId}`);
         
-        // GET follows PUT to get updated list
+        // GETs updated list
         yield put({type: 'FETCH_FAVORITES'})
     } catch(err) {
         console.log('err in removing favorite', err);  
@@ -100,11 +100,10 @@ const category = (state =[], action) => {
     
     switch (action.type) {
 
-        // // NO. 8: makes a copy of state and adds category to gif; does not mutate state
         // case 'ADD_CATEGORY':
         //     return [...state, action.payload];
-        case 'SET_CATEGORY':
-            return action.payload;
+        // case 'SET_CATEGORY':
+        //     return action.payload;
         default:
             return state;
     }

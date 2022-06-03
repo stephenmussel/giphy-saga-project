@@ -1,5 +1,6 @@
 import { useState, useEffect } from 'react';
 import { useDispatch } from 'react-redux';
+import CategoryOptions from '../CategoryOptions/CategoryOptions';
 
 function FavoritesItem({ each }) {
 
