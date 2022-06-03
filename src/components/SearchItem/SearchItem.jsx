@@ -4,10 +4,11 @@ function SearchItem({ gif, i }) {
 
     const dispatch = useDispatch();
 
-    const addFavorite = () => {
+    const createFavorite = () => {
         console.log('clicked favorite!');
 
-        const action = {type: 'ADD_FAVORITE', payload: gif};
+        // NUM 2: sends favorite `gif` (url) to addFavorite saga
+        const action = {type: 'CREATE_FAVORITE', payload: gif};
         dispatch(action);
     }
 
@@ -19,7 +20,10 @@ function SearchItem({ gif, i }) {
             alt="images"
             style={{marginTop: 25, marginBottom: 5}}
         /><br />
-        <button onClick={addFavorite}>favorite</button>
+
+        {/* NOTES 1-14 */}
+        {/* NUM 1: click favorite button */}
+        <button onClick={createFavorite}>favorite</button>
         </div>
     )
 }

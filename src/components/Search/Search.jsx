@@ -12,12 +12,12 @@ function Search() {
         console.log('clicked search!');
 
         console.log('this is input: ', search);
-        setSearch('') // clears input
+        setSearch('') // clears input, resets local state
 
         axios.post('/api/search', {search: search})
             .then(response => {
                 console.log('response.data: ', response.data);
-                console.log('response.data...: ', response.data[0].images.original.url); //success, found giphy!
+                console.log('one gif url: ', response.data[0].images.original.url); //success, found gif!
                 setResults(response.data)
             }).catch(err => {
                 console.log('err in search: ', err);

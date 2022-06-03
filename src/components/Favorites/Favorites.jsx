@@ -4,6 +4,7 @@ import FavoritesItem from '../FavoritesItem/FavoritesItem';
 
 function Favorites() {
 
+    // provides redux store to component including the favorite reducer
     const favorites = useSelector(store => store.favorite)
     const dispatch = useDispatch();
 
@@ -39,12 +40,14 @@ function Favorites() {
                     <option value="5">Meme</option>
                 </select>
             </div>
-            {/* {JSON.stringify(favorites)} */}
+
+            {/* maps thru list from favorite reducer to display each gif */}
             {favorites.map(each => (
+                <div key={each.id}>
                 <FavoritesItem
                     each={each}
-                    key={each.id}
                 />
+                </div>
             ))}
         </div>
     )

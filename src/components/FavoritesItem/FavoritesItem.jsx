@@ -37,10 +37,12 @@ function FavoritesItem({ each }) {
     }
 
     const addCategory = (event) => {
+        event.preventDefault();
         console.log('in addCategory!');
         console.log('category_id selected: ', event.target.value);
         console.log('favGiphId: ', each.id);
 
+        // NO. 2: sending favorite id and category id to addCategory saga
         // sending id of favorited giph along with category id
         const action = {type: 'ADD_CATEGORY', payload: each.id, category_id: event.target.value};
         dispatch(action);
@@ -64,6 +66,8 @@ function FavoritesItem({ each }) {
             /><br />
             {/* displays category of giph if available */}
             <p><b>Category:</b> {category}</p> 
+
+            {/* NO. 1: adding category to favorite gif  */}
             <select onChange={addCategory} style={{marginRight: 5}}>
 
                 {/* value represents category id */}
