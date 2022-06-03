@@ -11,9 +11,9 @@ router.post('/', (req, res) => {
     axios.get(`https://api.giphy.com/v1/gifs/search?api_key=${process.env.GIPHY_API_KEY}&q=${searchQuery}&limit=5&offset=0&rating=g&lang=en`)
         .then(response => {
             console.log(response.data.data);
-            res.send(response.data.data); 
+            res.send(response.data.data);
         })
-        .catch(err => { 
+        .catch(err => {
             console.log('err in search query: ', err);
             res.sendStatus(500);
         });

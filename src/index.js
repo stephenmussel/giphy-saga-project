@@ -11,8 +11,8 @@ import axios from 'axios';
 const sagaMiddleware = createSagaMiddleware();
 
 function* rootSaga() {
-    yield takeEvery('CREATE_FAVORITE', createFavorite) // NUM 3: createFavorite saga added
-    yield takeEvery('FETCH_FAVORITES', fetchFavorites) // NUM 8: fetchFavorite saga added
+    yield takeEvery('CREATE_FAVORITE', createFavorite)
+    yield takeEvery('FETCH_FAVORITES', fetchFavorites)
     yield takeEvery('ADD_CATEGORY', addCategory) // NO. 3: addCategory saga added
     yield takeEvery('REMOVE_FAV', removeFav)
     yield takeEvery('SORT_BY', sortBy)
@@ -63,20 +63,18 @@ function* addCategory(action) {
     }
 }
 
-// NUM 4: create saga
 function* createFavorite(action) {
     try {
         console.log('createFavorite saga wired!');
 
-        // NUM 5: payload is url of favorited `gif`
+        // payload is url of favorited `gif`
         const newFav = action.payload;
         yield console.log('newFav: ', newFav);
 
-        // NUM 6: POSTs url to favorite table
+        // POSTs url to favorite table
         yield axios.post('/api/favorite', {url: newFav});
 
-        // NUM 7: `dispatches` type to GET favorites from favorites table
-        // GET follows POST to get updated list
+        // GETs updated list
         yield put({type: 'FETCH_FAVORITES'})
     } catch(err) {
         console.log('err in adding createFavorite', err);
