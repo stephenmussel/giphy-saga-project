@@ -43,20 +43,17 @@ function* removeFav(action) {
     }
 }
 
-// NO. 4: create saga
 function* addCategory(action) {
     try {
         console.log('addCategory saga wired!');
 
-        // NO. 5: payload is favorite id
         const favId = action.payload;
-        yield console.log('favId: ', favId);
+        console.log('favId: ', favId);
 
-        // NO. 6: UPDATE category_id column of favorite id in favorite table
+        //UPDATEs category_id column of favId in favorite table
         yield axios.put(`/api/favorite/${favId}`, {category_id: action.category_id});
         
-        // NO. 7: GETs updated list from server
-        // GET follows PUT to get updated list
+        // GETs updated list
         yield put({type: 'FETCH_FAVORITES'})
     } catch(err) {
         console.log('err in adding category', err);  
@@ -69,7 +66,7 @@ function* createFavorite(action) {
 
         // payload is url of favorited `gif`
         const newFav = action.payload;
-        yield console.log('newFav: ', newFav);
+        console.log('newFav: ', newFav);
 
         // POSTs url to favorite table
         yield axios.post('/api/favorite', {url: newFav});
@@ -87,7 +84,7 @@ function* fetchFavorites() {
         
         // GETs favorites from favorites table 
         const response = yield axios.get('/api/favorite');
-        yield console.log('favorite list:', response.data);
+        console.log('favorite list:', response.data);
 
         // Sends favorites to favorite reducer
         const action = {type: 'SET_FAVORITES', payload: response.data};
@@ -103,9 +100,9 @@ const category = (state =[], action) => {
     
     switch (action.type) {
 
-        // NO. 8: makes a copy of state and adds category to gif; does not mutate state
-        case 'ADD_CATEGORY':
-            return [...state, action.payload];
+        // // NO. 8: makes a copy of state and adds category to gif; does not mutate state
+        // case 'ADD_CATEGORY':
+        //     return [...state, action.payload];
         case 'SET_CATEGORY':
             return action.payload;
         default:

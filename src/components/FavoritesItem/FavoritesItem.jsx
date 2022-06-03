@@ -1,5 +1,4 @@
 import { useState, useEffect } from 'react';
-import axios from 'axios';
 import { useDispatch } from 'react-redux';
 
 function FavoritesItem({ each }) {
@@ -11,26 +10,26 @@ function FavoritesItem({ each }) {
         checkCat();
     }, [])
 
-    // checks to see if giph has category_id then displays corresponding string value or `n/a` if it doesn't have one.
+    // checks to see if gif has category_id then displays corresponding string value or `n/a` if it doesn't have one.
     const checkCat = () => {
         console.log('in checkCat!');
 
-        switch(each.category_id) {
+        switch (each.category_id) {
             case 1:
                 setCategory('Funny');
-            break;
+                break;
             case 2:
                 setCategory('Cohort');
-            break;
+                break;
             case 3:
                 setCategory('Cartoon');
-            break;
+                break;
             case 4:
                 setCategory('NSFW');
-            break;
+                break;
             case 5:
                 setCategory('Meme');
-            break;
+                break;
             default:
                 break;
         }
@@ -40,46 +39,44 @@ function FavoritesItem({ each }) {
         event.preventDefault();
         console.log('in addCategory!');
         console.log('category_id selected: ', event.target.value);
-        console.log('favGiphId: ', each.id);
+        console.log('favId: ', each.id);
 
-        // NO. 2: sending favorite id and category id to addCategory saga
-        // sending id of favorited giph along with category id
-        const action = {type: 'ADD_CATEGORY', payload: each.id, category_id: event.target.value};
+        // sending favorite id and category id to addCategory saga
+        const action = { type: 'ADD_CATEGORY', payload: each.id, category_id: event.target.value };
         dispatch(action);
     }
 
     const removeFav = () => {
         console.log('clicked remove with favId:', each.id);
 
-        const action = {type: 'REMOVE_FAV', payload: each.id};
+        const action = { type: 'REMOVE_FAV', payload: each.id };
         dispatch(action);
     }
 
-    return(
+    return (
         <div>
-            
-            <img 
-                key={each.id} 
+
+            <img
                 src={each.url}
                 alt="giphs"
-                style={{marginTop: 25}}
+                style={{ marginTop: 25 }}
             /><br />
-            {/* displays category of giph if available */}
-            <p><b>Category:</b> {category}</p> 
+            {/* displays category if available */}
+            <p><b>Category:</b> {category}</p>
 
-            {/* NO. 1: adding category to favorite gif  */}
-            <select onChange={addCategory} style={{marginRight: 5}}>
+            {/* add category to favorite gif  */}
+            <select onChange={addCategory} style={{ marginRight: 5 }}>
 
                 {/* value represents category id */}
-                <option>select category</option>
-                <option value="1">funny</option>
-                <option value="2">cohort</option>
-                <option value="3">cartoon</option>
-                <option value="4">nsfw</option>
-                <option value="5">meme</option>
+                <option>Select Category</option>
+                <option value="1">Funny</option>
+                <option value="2">Cohort</option>
+                <option value="3">Cartoon</option>
+                <option value="4">NSFW</option>
+                <option value="5">Meme</option>
             </select>
             <button onClick={() => removeFav(each.id)}>remove</button>
-            
+
         </div>
     )
 }

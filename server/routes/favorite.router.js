@@ -1,10 +1,9 @@
-const { response } = require('express');
 const express = require('express');
 const pool = require('../modules/pool');
 
 const router = express.Router();
 
-// return all favorite images
+// return all favorite gifs
 router.get('/', (req, res) => {
   const queryText = `SELECT * from favorite ORDER by id DESC;`;
   pool.query(queryText)
@@ -35,7 +34,7 @@ router.post('/', (req, res) => {
 
 // update given favorite with a category id
 router.put('/:id', (req, res) => {
-  // req.body should contain a category_id to add to this favorite image
+  // req.body should contain a category_id to add to this favorite gif
   const favId = req.params.id;
   console.log('favId: ', favId);
   
@@ -48,7 +47,7 @@ router.put('/:id', (req, res) => {
       res.sendStatus(201);
     })
     .catch(err => {
-      console.log('err in adding category to giph: ', err);
+      console.log('err in adding category to gif: ', err);
       res.sendStatus(500);
     });
 });
@@ -64,7 +63,7 @@ router.delete('/:id', (req, res) => {
         res.sendStatus(200);
     })
     .catch(err => {
-      console.log('err in removing favorite giph', err);
+      console.log('err in removing favorite gif', err);
       res.sendStatus(500);
     });
 });

@@ -44,9 +44,9 @@ function Favorites() {
             {/* maps thru list from favorite reducer to display each gif */}
             {favorites.map(each => (
                 <div key={each.id}>
-                <FavoritesItem
-                    each={each}
-                />
+                    <FavoritesItem
+                        each={each}
+                    />
                 </div>
             ))}
         </div>
