@@ -14,7 +14,7 @@ function Search() {
         console.log('this is input: ', search);
         setSearch('') // clears input, resets local state
 
-        axios.post('/api/search', {search: search})
+        axios.post('/api/search', { search: search })
             .then(response => {
                 console.log('response.data: ', response.data);
                 console.log('one gif url: ', response.data[0].images.original.url); //success, found gif!
@@ -24,30 +24,30 @@ function Search() {
             });
     };
 
-    return(
+    return (
         <div>
             <div>
-            <form onSubmit={handleSubmit}>
-                <input 
-                    placeholder='search GIPHY'
-                    style={{marginRight: 5}}
-                    onChange={(event) => setSearch(event.target.value)}
-                    value={search} // helps to clear input field later
-                />
-                <input 
-                    type='submit'
-                    value='search'
-                />
-            </form>
+                <form onSubmit={handleSubmit}>
+                    <input
+                        placeholder='search GIPHY'
+                        style={{ marginRight: 5 }}
+                        onChange={(event) => setSearch(event.target.value)}
+                        value={search} // helps to clear input field later
+                    />
+                    <input
+                        type='submit'
+                        value='search'
+                    />
+                </form>
             </div>
             <div>
                 <h1>Results...</h1>
-                {/* {JSON.stringify(results)} */}
                 {results.map((gif, i) => (
-                    <SearchItem 
-                        key={i}
-                        gif={gif.images.original.url}
-                    />
+                    <div key={i}>
+                        <SearchItem
+                            gif={gif.images.original.url}
+                        />
+                    </div>
                 ))}
             </div>
         </div>
