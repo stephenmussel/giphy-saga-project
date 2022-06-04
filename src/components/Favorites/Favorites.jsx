@@ -24,6 +24,9 @@ function Favorites() {
     const sortBy = (event) => {
         console.log('in sortBy!');
         setSortCat(event.target.value);
+
+        const action = { type: 'SORT_BY', payload: event.target.value };
+        dispatch(action);
     }
 
     return (
@@ -42,11 +45,21 @@ function Favorites() {
             Sort By Id: {sortCat}
 
             {/* maps thru list from favorite reducer to display each gif */}
-            {favorites.map(each => (
+            {/* {favorites.map(each => (
                 <div key={each.id}>
                     <FavoritesItem
                         each={each}
                     />
+                </div>
+            ))} */}
+            {favorites.map(each => (
+                <div key={each.id}>
+                    {sortCat === "n/a" ?
+                    <FavoritesItem each={each} /> :
+                    sortCat === `${each.category_id}` ?
+                    <FavoritesItem each={each} /> : "" }
+
+                   
                 </div>
             ))}
         </div>
