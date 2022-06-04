@@ -13,7 +13,7 @@ const sagaMiddleware = createSagaMiddleware();
 function* rootSaga() {
     yield takeEvery('CREATE_FAVORITE', createFavorite)
     yield takeEvery('FETCH_FAVORITES', fetchFavorites)
-    yield takeEvery('ADD_CATEGORY', addCategory) // NO. 3: addCategory saga added
+    yield takeEvery('ADD_CATEGORY', addCategory)
     yield takeEvery('REMOVE_FAV', removeFav)
     yield takeEvery('SORT_BY', sortBy)
 }

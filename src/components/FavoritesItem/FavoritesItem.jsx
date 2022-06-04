@@ -4,12 +4,12 @@ import CategoryOptions from '../CategoryOptions/CategoryOptions';
 
 function FavoritesItem({ each }) {
 
-    const [category, setCategory] = useState('n/a');
+    const [category, setCategory] = useState('');
     const dispatch = useDispatch();
 
     useEffect(() => {
-        checkCat();
-    }, [])
+        checkCat(each.category_id);
+    }, [each.category_id])
 
     // checks to see if gif has category_id then displays corresponding string value or `n/a` if it doesn't have one.
     const checkCat = () => {
@@ -66,7 +66,7 @@ function FavoritesItem({ each }) {
             <p><b>Category:</b> {category}</p>
 
             {/* add category to favorite gif  */}
-            <select onChange={addCategory} style={{ marginRight: 5 }}>
+            <select onChange={(event) => addCategory(event)} style={{ marginRight: 5 }}>
 
                 {/* value represents category id */}
                 <option>Select Category</option>
@@ -76,6 +76,10 @@ function FavoritesItem({ each }) {
                 <option value="4">NSFW</option>
                 <option value="5">Meme</option>
             </select>
+            {/* <div>
+                <button value="1" onClick={(event) => addCategory(event)}>Funny</button>
+                <button value="2" onClick={(event) => addCategory(event)}>Cohort</button>
+            </div> */}
             <button onClick={() => removeFav(each.id)}>remove</button>
 
         </div>
