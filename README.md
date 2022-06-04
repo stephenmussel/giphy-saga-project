@@ -96,7 +96,7 @@ How does someone use this application? Tell a user story here.
 <!-- Updates -->
 ## Updates
  
-- [ ] Sort by category 
+- [x] Sort by category 
 - [ ] Allow for a favorite to have **many categories** instead of just one 
 - [ ] Implement the pagination feature for the Giphy search results
 - [ ] Add another view that allows a user to manage the categories
