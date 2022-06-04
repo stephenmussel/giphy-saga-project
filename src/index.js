@@ -15,18 +15,20 @@ function* rootSaga() {
     yield takeEvery('FETCH_FAVORITES', fetchFavorites)
     yield takeEvery('ADD_CATEGORY', addCategory)
     yield takeEvery('REMOVE_FAV', removeFav)
-    yield takeEvery('SORT_BY', sortBy)
+    // yield takeEvery('SORT_BY', sortBy)
 }
 
-function* sortBy(action) {
-    try {
-        console.log('sortBy saga wired!');
-        
-
-    } catch(err) {
-        console.log('err in sorting by category', err);
-    }
-}
+// function* sortBy(action) {
+//     try {
+//         console.log('sortBy saga wired!');
+//         const sortByCatId = action.payload
+//         console.log('category_id to sortby:', sortByCatId);
+//         yield put({ type: 'FETCH_FAVORITES'})
+    
+//     } catch(err) {
+//         console.log('err in sorting by category', err);
+//     }
+// }
 
 function* removeFav(action) {
     try {
