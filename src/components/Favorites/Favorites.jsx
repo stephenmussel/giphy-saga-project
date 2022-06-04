@@ -24,7 +24,6 @@ function Favorites() {
     const sortBy = (event) => {
         console.log('in sortBy!');
         setSortCat(event.target.value);
-        console.log('catId:', sortCat);
     }
 
     return (
@@ -40,6 +39,7 @@ function Favorites() {
                     <option value="5">Meme</option>
                 </select>
             </div>
+            Sort By Id: {sortCat}
 
             {/* maps thru list from favorite reducer to display each gif */}
             {favorites.map(each => (
