@@ -65,22 +65,24 @@ function FavoritesItem({ each }) {
             {/* displays category if available */}
             <p><b>Category:</b> {category}</p>
 
-            {/* add category to favorite gif  */}
-            <select onChange={(event) => addCategory(event)} style={{ marginRight: 5 }}>
+            <form style={{ marginBottom: 5 }}>
+                {/* add category to favorite gif  */}
+                <select onChange={(event) => addCategory(event)} style={{ marginRight: 5 }}>
 
-                {/* value represents category id */}
-                <option>Select Category</option>
-                <option value="1">Funny</option>
-                <option value="2">Cohort</option>
-                <option value="3">Cartoon</option>
-                <option value="4">NSFW</option>
-                <option value="5">Meme</option>
-            </select>
+                    {/* value represents category id */}
+                    <option>Add Category</option>
+                    <option value="1">Funny</option>
+                    <option value="2">Cohort</option>
+                    <option value="3">Cartoon</option>
+                    <option value="4">NSFW</option>
+                    <option value="5">Meme</option>
+                </select>
+            </form>
             {/* <div>
                 <button value="1" onClick={(event) => addCategory(event)}>Funny</button>
                 <button value="2" onClick={(event) => addCategory(event)}>Cohort</button>
             </div> */}
-            <button onClick={() => removeFav(each.id)}>remove</button>
+            <button onClick={() => removeFav(each.id)}>Remove</button>
 
         </div>
     )
