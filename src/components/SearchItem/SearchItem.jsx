@@ -15,6 +15,11 @@ function SearchItem({ gif }) {
         dispatch(action);
     }
 
+    const unFavorite = () => {
+        console.log('clicked unFavorite!');
+        setButton(!button);
+    }
+
     return (
         <div>
             <img
@@ -22,7 +27,7 @@ function SearchItem({ gif }) {
                 alt="gif"
                 style={{ marginTop: 25, marginBottom: 5 }}
             /><br />
-            {button ? <button onClick={createFavorite}>favorite</button> : <button onClick={createFavorite}>unfavorite</button>}
+            {button ? <button onClick={createFavorite}>favorite</button> : <button onClick={unFavorite}>unfavorite</button>}
             {/* <button onClick={createFavorite}>favorite</button> */}
             {/* <button onClick={createFavorite}>favorite</button> */}
         </div>
