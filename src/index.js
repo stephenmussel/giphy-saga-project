@@ -15,6 +15,7 @@ function* rootSaga() {
     yield takeEvery('FETCH_FAVORITES', fetchFavorites)
     yield takeEvery('ADD_CATEGORY', addCategory)
     yield takeEvery('DELETE_FAV', deleteFav)
+    yield takeEvery('UN_FAV', unFav)
     // yield takeEvery('SORT_BY', sortBy)
 }
 
@@ -29,6 +30,22 @@ function* rootSaga() {
 //         console.log('err in sorting by category', err);
 //     }
 // }
+
+function* unFav(action) {
+    try {
+        console.log('unFav saga wired!');
+        const unFavUrl = action.payload;
+        console.log('unFavUrl', unFavUrl);
+        yield axios.delete(`/api/favorite/${unFavUrl}`);
+
+        yield put ({ type: 'FETCH_FAVORITES' });
+        
+        
+    } catch(err) {
+        console.log('err in unfavoriting gif', err);
+        
+    }
+}
 
 function* deleteFav(action) {
     try {

@@ -16,7 +16,7 @@ function Search() {
 
         axios.post('/api/search', { search: search })
             .then(response => {
-                console.log('response.data: ', response.data);
+                console.log('these are results: ', response.data);
                 console.log('one gif url: ', response.data[0].images.original.url); //success, found gif!
                 setResults(response.data)
             }).catch(err => {
