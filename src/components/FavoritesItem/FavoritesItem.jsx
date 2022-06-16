@@ -47,10 +47,10 @@ function FavoritesItem({ each }) {
         dispatch(action);
     }
 
-    const removeFav = () => {
+    const deleteFav = () => {
         console.log('clicked remove with favId:', each.id);
 
-        const action = { type: 'REMOVE_FAV', payload: each.id };
+        const action = { type: 'DELETE_FAV', payload: each.id };
         dispatch(action);
     }
 
@@ -82,7 +82,7 @@ function FavoritesItem({ each }) {
                 <button value="1" onClick={(event) => addCategory(event)}>Funny</button>
                 <button value="2" onClick={(event) => addCategory(event)}>Cohort</button>
             </div> */}
-            <button onClick={() => removeFav(each.id)}>Remove</button>
+            <button onClick={() => deleteFav(each.id)}>Remove</button>
 
         </div>
     )

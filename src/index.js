@@ -14,7 +14,7 @@ function* rootSaga() {
     yield takeEvery('CREATE_FAVORITE', createFavorite)
     yield takeEvery('FETCH_FAVORITES', fetchFavorites)
     yield takeEvery('ADD_CATEGORY', addCategory)
-    yield takeEvery('REMOVE_FAV', removeFav)
+    yield takeEvery('DELETE_FAV', deleteFav)
     // yield takeEvery('SORT_BY', sortBy)
 }
 
@@ -30,9 +30,9 @@ function* rootSaga() {
 //     }
 // }
 
-function* removeFav(action) {
+function* deleteFav(action) {
     try {
-        console.log('removeFav saga wired!');
+        console.log('deleteFav saga wired!');
 
         const removeId = action.payload;
         console.log('id to remove:', removeId);
